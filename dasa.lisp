@@ -1,5 +1,3 @@
-(ql:quickload '())
-
 (defpackage dasa
   (:use :cl :websocket-driver))
 
