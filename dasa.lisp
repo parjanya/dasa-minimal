@@ -29,3 +29,5 @@
 (defparameter handler (clack:clackup *echo-server* :server :wookie :port 5000))
 ;; (clack:stop handler)
 
+;; WHY DOESN’T THIS WORK?
+;; (websocket-driver:send-text (car (nth 0 (alexandria:hash-table-alist *connections*))) "tralala")
