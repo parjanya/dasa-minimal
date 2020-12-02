@@ -12,12 +12,13 @@
         function receivedMessage(msg) {
             let li = document.createElement("li");
             li.textContent = msg.data;
+	    console.log(msg);
             document.getElementById("lalala").appendChild(li);
         }
 
         const ws = new WebSocket("ws://localhost:5000/");
 	ws.addEventListener('message', receivedMessage);
-	ws.addEventListener('close', receivedMessage);
+	ws.addEventListener('close', receivedMessage("closed."));
 
         inputField.addEventListener("keyup", (evt) => {
             if (evt.key === "Enter") {
