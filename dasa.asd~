@@ -1,0 +1,7 @@
+(defsystem "dasa"
+  :version "1"
+  :author "Edgard Bikelis <bikelis@gmail.com>"
+  :depends-on ("hunchentoot"
+               "websocket-driver-server")
+  :components ((:file "dasa"))
+  :description "http and websocket server.")

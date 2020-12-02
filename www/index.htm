@@ -1,0 +1,45 @@
+<html>
+<head>
+  <!-- <link rel="stylesheet" type="text/css" href="fix/estilo.css"/> -->
+  <style>
+    html {font-size:200%;}
+    input {font-size:inherit;}
+  </style>
+  <script>
+    window.onload = function () {
+        const inputField = document.getElementById("chat-input");
+
+        function receivedMessage(msg) {
+            let li = document.createElement("li");
+            li.textContent = msg.data;
+            document.getElementById("lalala").appendChild(li);
+        }
+
+        const ws = new WebSocket("ws://localhost:5000/");
+	ws.addEventListener('message', receivedMessage);
+	ws.addEventListener('close', receivedMessage);
+
+        inputField.addEventListener("keyup", (evt) => {
+            if (evt.key === "Enter") {
+                ws.send(evt.target.value);
+                evt.target.value = "";
+             }
+         });
+     };
+    </script>
+  
+</head>
+
+<body>
+
+  <div>
+    <input id="chat-input" placeholder="speak thy mind">
+  </div>
+  
+  <article id='lalala'>
+    Shalala.
+  </article>
+  
+</body>
+
+</html>
