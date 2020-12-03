@@ -17,7 +17,6 @@
     (loop :for con :being :the :hash-key :of *connections* :do
       (send con message))))
 
-
 (defparameter *echo-server*
   (lambda (env)
     (let ((ws (make-server env)))
@@ -33,11 +32,16 @@
         (declare (ignore responder))
         (start-connection ws)))))
 
-(defparameter handler (clack:clackup *echo-server* :server :wookie :port 5000))
-;; (clack:stop handler)
-
-;; WHY DOESN’T THIS WORK?
-;; (websocket-driver:send-text (car (nth 0 (alexandria:hash-table-alist *connections*))) "tralala")
+(defparameter handler (clack:clackup *echo-server* :server :hunchentoot :port 5000))
+;; to stop: (clack:stop handler)
 
 
-;; (ready-state (car (nth 0 (alexandria:hash-table-alist *connections*))))
+(defun state-of-latest-connection ()
+  (ready-state (car (nth 0 (alexandria:hash-table-alist *connections*)))))
+
+(defun send-to-latest-connection (thing)
+  (websocket-driver:send (car (nth 0 (alexandria:hash-table-alist *connections*))) thing))
+
+(defparameter botão "<button type=\"button\" onclick=\"document.body.style.backgroundColor = 'black'\">
+Click me to change the background color to black</button>")
+

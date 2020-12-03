@@ -4,4 +4,4 @@
   :depends-on ("clack" 
                "websocket-driver-server")
   :components ((:file "dasa"))
-  :description "A test.")
+  :description "A minimal text for using websockets.")

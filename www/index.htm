@@ -1,6 +1,6 @@
 <html>
 <head>
-  <!-- <link rel="stylesheet" type="text/css" href="fix/estilo.css"/> -->
+  <link rel="stylesheet" type="text/css" href="estilo.css"/>
   <style>
     html {font-size:200%;}
     input {font-size:inherit;}
@@ -10,11 +10,10 @@
         const inputField = document.getElementById("chat-input");
 
         function receivedMessage(msg) {
-            let li = document.createElement("li");
-            li.textContent = msg.data;
+            let new_thing = document.createElement("article");
+	    new_thing.innerHTML = msg.data;
 	    console.log(msg);
-            document.getElementById("lalala").appendChild(li);
-        }
+            document.getElementById("results").appendChild(new_thing);}
 
         const ws = new WebSocket("ws://localhost:5000/");
 	ws.addEventListener('message', receivedMessage);
@@ -33,13 +32,12 @@
 
 <body>
 
-  <div>
+  <div class='center'>
     <input id="chat-input" placeholder="speak thy mind">
   </div>
   
-  <article id='lalala'>
-    Shalala.
-  </article>
+  <div id='results'>
+  </div>
   
 </body>
 

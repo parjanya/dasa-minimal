@@ -1,0 +1,29 @@
+
+html {display:flex;
+      margin:1%;}
+
+body {max-width: 33em;
+      font-size:24px;
+      margin:auto;}
+
+article{
+    margin:auto;
+    margin-top: 6%;
+    display:block;
+    max-width: 27em;
+    padding: 1.5%;
+    background-color:lightgray;
+}
+
+.center {
+    text-align: center;
+    margin:auto;
+}
+
+.left {
+    text-align:left;
+}
+
+.right {
+    text-align:right;
+}
