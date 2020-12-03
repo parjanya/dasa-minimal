@@ -1,0 +1,5 @@
+This is a /very painfully minimal/ working example for using websockets on Common Lisp, using Fukamachi’s
+[[websocket-driver][https://github.com/fukamachi/websocket-driver/]].
+
+Loading it and pointing the browser to the index.htm path, 
+=~/common-lisp/dasa/www/index.htm= in my case, should be enough to get it to work.
