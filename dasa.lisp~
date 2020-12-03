@@ -1,9 +1,0 @@
-
-(defpackage dasa
-  (:use :cl)
-  ;; (:export rastreio)
-  )
-
-
-(in-package :carteiro)
-
