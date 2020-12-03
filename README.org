@@ -3,3 +3,8 @@ This is a /very painfully minimal/ working example for using websockets on Commo
 
 Loading it and pointing the browser to the index.htm path, 
 =~/common-lisp/dasa/www/index.htm= in my case, should be enough to get it to work.
+
+Connections are stored on the creatively named ~*connections*~ hashtable. In order to send anything
+to a client, grab the desired connection and use the ~websocket-driver:send~ function. As an example
+I’ve set a function named ~send-to-latest-connection~, which you can use to send a button, stored
+as ~botão~, to the latest connection, /and lo/, it (should have) worked!
